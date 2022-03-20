@@ -1,7 +1,7 @@
 ﻿
 namespace Laboratorirum_3
 {
-    partial class Dialog
+    partial class DialogAddPerson
     {
         /// <summary>
         /// Required designer variable.
@@ -37,8 +37,8 @@ namespace Laboratorirum_3
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.OkB = new System.Windows.Forms.Button();
-            this.CancelB = new System.Windows.Forms.Button();
+            this.btn_Ok = new System.Windows.Forms.Button();
+            this.btn_Cancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // nameBox
@@ -105,35 +105,33 @@ namespace Laboratorirum_3
             this.label4.TabIndex = 7;
             this.label4.Text = "Location";
             // 
-            // OkB
+            // btn_Ok
             // 
-            this.OkB.Location = new System.Drawing.Point(44, 125);
-            this.OkB.Name = "OkB";
-            this.OkB.Size = new System.Drawing.Size(100, 23);
-            this.OkB.TabIndex = 8;
-            this.OkB.Text = "Ok";
-            this.OkB.UseVisualStyleBackColor = true;
-            this.OkB.Click += new System.EventHandler(this.OkB_Click);
+            this.btn_Ok.Location = new System.Drawing.Point(44, 125);
+            this.btn_Ok.Name = "btn_Ok";
+            this.btn_Ok.Size = new System.Drawing.Size(100, 23);
+            this.btn_Ok.TabIndex = 8;
+            this.btn_Ok.Text = "Ok";
+            this.btn_Ok.UseVisualStyleBackColor = true;
+            this.btn_Ok.Click += new System.EventHandler(this.btn_Ok_Click);
             // 
-            // CancelB
+            // btn_Cancel
             // 
-            this.CancelB.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.CancelB.Location = new System.Drawing.Point(190, 124);
-            this.CancelB.Name = "CancelB";
-            this.CancelB.Size = new System.Drawing.Size(100, 23);
-            this.CancelB.TabIndex = 9;
-            this.CancelB.Text = "Cancel";
-            this.CancelB.UseVisualStyleBackColor = true;
+            this.btn_Cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btn_Cancel.Location = new System.Drawing.Point(190, 124);
+            this.btn_Cancel.Name = "btn_Cancel";
+            this.btn_Cancel.Size = new System.Drawing.Size(100, 23);
+            this.btn_Cancel.TabIndex = 9;
+            this.btn_Cancel.Text = "Cancel";
+            this.btn_Cancel.UseVisualStyleBackColor = true;
             // 
-            // Dialog
+            // DialogAddPerson
             // 
-            this.AcceptButton = this.OkB;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.CancelButton = this.CancelB;
             this.ClientSize = new System.Drawing.Size(624, 182);
-            this.Controls.Add(this.CancelB);
-            this.Controls.Add(this.OkB);
+            this.Controls.Add(this.btn_Cancel);
+            this.Controls.Add(this.btn_Ok);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -142,8 +140,8 @@ namespace Laboratorirum_3
             this.Controls.Add(this.ageBox);
             this.Controls.Add(this.surnameBox);
             this.Controls.Add(this.nameBox);
-            this.Name = "Dialog";
-            this.Text = "Person\'s information";
+            this.Name = "DialogAddPerson";
+            this.Text = "Dialog";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -159,7 +157,7 @@ namespace Laboratorirum_3
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button OkB;
-        private System.Windows.Forms.Button CancelB;
+        private System.Windows.Forms.Button btn_Ok;
+        private System.Windows.Forms.Button btn_Cancel;
     }
 }

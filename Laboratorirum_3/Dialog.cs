@@ -10,24 +10,32 @@ using System.Windows.Forms;
 
 namespace Laboratorirum_3
 {
-    public partial class Dialog : Form
+    public partial class DialogAddPerson : Form
     {
-        public string Name { get; set; }
-        public string Surname { get; set; }
-        public double Age { get; set; }
-        public string Location { get; set; }
+        public Person person;
 
-        public Dialog()
+        public string buttonText 
+        { 
+            get => btn_Ok.Text;
+            set => btn_Ok.Text = value; 
+        }
+
+        public DialogAddPerson()
         {
             InitializeComponent();
         }
 
-        private void OkB_Click(object sender, EventArgs e)
+        private void btn_Ok_Click(object sender, EventArgs e)
         {
-            Name = nameBox.Text;
-            Surname = surnameBox.Text;
-            Age = double.Parse(ageBox.Text);
-            Location = locationBox.Text;
+            try
+            {
+                person = new Person(nameBox.Text, surnameBox.Text, double.Parse(ageBox.Text), locationBox.Text);
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("There are errors in entered information!");
+                return;
+            }
             DialogResult = DialogResult.OK;
         }
     }

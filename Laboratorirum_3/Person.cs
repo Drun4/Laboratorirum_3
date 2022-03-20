@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Laboratorirum_3
 {
-    class Person
+    public class Person
     {
         public string name;
         public string surname;

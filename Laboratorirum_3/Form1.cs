@@ -12,47 +12,60 @@ namespace Laboratorirum_3
 {
     public partial class Form1 : Form
     {
-        static public int num_of_persons = 0;
-        static Person[] persons = new Person[num_of_persons];
-        static Person[] AuxPersons = new Person[num_of_persons];
+        List<string> persons = new List<string>();
 
         public Form1()
         {
             InitializeComponent();
         }
 
-        private void addPersonB_Click(object sender, EventArgs e)
+        private void btn_addPerson_Click(object sender, EventArgs e)
         {
-            Dialog dialog = new Dialog();
+            DialogAddPerson dialog = new DialogAddPerson();
+            dialog.Text = "Add Person";
+            dialog.buttonText = "Add";
+
             var result = dialog.ShowDialog();
 
-            if(result == DialogResult.OK)
+            if (result == DialogResult.OK)
             {
-                num_of_persons++;
-
-                AuxPersons = new Person[num_of_persons];
-                for (int i = 0; i < persons.Length; i++)
-                {
-                    AuxPersons[i] = persons[i];
-                }
-
-                AuxPersons[num_of_persons - 1] = new Person(dialog.Name, dialog.Surname, dialog.Age, dialog.Location); 
-                personsInfoBox.Text += AuxPersons[num_of_persons - 1].ToStringInformation() + "\n";
-
-                persons = new Person[num_of_persons];
-                for(int i = 0; i < AuxPersons.Length; i++)
-                {
-                    persons[i] = AuxPersons[i];
-                }
+                personListBox.Items.Add(dialog.person.ToStringInformation());
+                persons.Add(dialog.person.ToStringInformation());
             }
-            else if(result == DialogResult.Cancel)
+            else if (result == DialogResult.Cancel)
             {
                 personsInfoBox.Text += "";
             }
-            for(int i = 0; i < persons.Length; i++)
+        }
+
+        private void btn_addMore_Click(object sender, EventArgs e)
+        {
+            DialogAddMore dialog = new DialogAddMore();
+            dialog.PersonEntered += Dialog_PersonEntered;
+            dialog.Show();
+        }
+
+        private void Dialog_PersonEntered(object sender, Person e)
+        {
+            personListBox.Items.Add(e.ToStringInformation());
+            persons.Add(e.ToStringInformation());
+        }
+
+        private void btn_showList_CLick(object sender, EventArgs e)
+        {
+            foreach(var p in persons)
             {
-                personsInfoBox.Text += persons[i].ToStringInformation() + "\n";
+                personsInfoBox.Text += p + "\n";
             }
+        }
+
+        private void btn_Edit_Click(object sender, EventArgs e)
+        {
+            DialogAddPerson dialog = new DialogAddPerson();
+            dialog.Text = "Edit Person";
+            dialog.buttonText = "Edit";
+
+            var result = dialog.ShowDialog();
         }
     }
 }
