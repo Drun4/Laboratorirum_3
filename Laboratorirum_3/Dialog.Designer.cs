@@ -39,6 +39,7 @@ namespace Laboratorirum_3
             this.label4 = new System.Windows.Forms.Label();
             this.btn_Ok = new System.Windows.Forms.Button();
             this.btn_Cancel = new System.Windows.Forms.Button();
+            this.btn_Clean = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // nameBox
@@ -118,18 +119,29 @@ namespace Laboratorirum_3
             // btn_Cancel
             // 
             this.btn_Cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btn_Cancel.Location = new System.Drawing.Point(190, 124);
+            this.btn_Cancel.Location = new System.Drawing.Point(190, 125);
             this.btn_Cancel.Name = "btn_Cancel";
             this.btn_Cancel.Size = new System.Drawing.Size(100, 23);
             this.btn_Cancel.TabIndex = 9;
             this.btn_Cancel.Text = "Cancel";
             this.btn_Cancel.UseVisualStyleBackColor = true;
             // 
+            // btn_Clean
+            // 
+            this.btn_Clean.Location = new System.Drawing.Point(482, 125);
+            this.btn_Clean.Name = "btn_Clean";
+            this.btn_Clean.Size = new System.Drawing.Size(100, 23);
+            this.btn_Clean.TabIndex = 21;
+            this.btn_Clean.Text = "Clean";
+            this.btn_Clean.UseVisualStyleBackColor = true;
+            this.btn_Clean.Click += new System.EventHandler(this.btn_Clean_Click);
+            // 
             // DialogAddPerson
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(624, 182);
+            this.Controls.Add(this.btn_Clean);
             this.Controls.Add(this.btn_Cancel);
             this.Controls.Add(this.btn_Ok);
             this.Controls.Add(this.label4);
@@ -159,5 +171,6 @@ namespace Laboratorirum_3
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btn_Ok;
         private System.Windows.Forms.Button btn_Cancel;
+        private System.Windows.Forms.Button btn_Clean;
     }
 }

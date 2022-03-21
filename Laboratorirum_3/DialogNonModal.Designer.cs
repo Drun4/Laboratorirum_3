@@ -39,11 +39,11 @@ namespace Laboratorirum_3
             this.ageBox = new System.Windows.Forms.TextBox();
             this.surnameBox = new System.Windows.Forms.TextBox();
             this.nameBox = new System.Windows.Forms.TextBox();
+            this.btn_Clean = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btn_Close
             // 
-            this.btn_Close.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btn_Close.Location = new System.Drawing.Point(190, 124);
             this.btn_Close.Name = "btn_Close";
             this.btn_Close.Size = new System.Drawing.Size(100, 23);
@@ -126,11 +126,22 @@ namespace Laboratorirum_3
             this.nameBox.Size = new System.Drawing.Size(100, 20);
             this.nameBox.TabIndex = 10;
             // 
+            // btn_Clean
+            // 
+            this.btn_Clean.Location = new System.Drawing.Point(482, 124);
+            this.btn_Clean.Name = "btn_Clean";
+            this.btn_Clean.Size = new System.Drawing.Size(100, 23);
+            this.btn_Clean.TabIndex = 20;
+            this.btn_Clean.Text = "Clean";
+            this.btn_Clean.UseVisualStyleBackColor = true;
+            this.btn_Clean.Click += new System.EventHandler(this.btn_Clean_Click);
+            // 
             // DialogAddMore
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(624, 182);
+            this.Controls.Add(this.btn_Clean);
             this.Controls.Add(this.btn_Close);
             this.Controls.Add(this.btn_Add);
             this.Controls.Add(this.label4);
@@ -160,5 +171,6 @@ namespace Laboratorirum_3
         private System.Windows.Forms.TextBox ageBox;
         private System.Windows.Forms.TextBox surnameBox;
         private System.Windows.Forms.TextBox nameBox;
+        private System.Windows.Forms.Button btn_Clean;
     }
 }

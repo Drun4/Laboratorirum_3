@@ -12,11 +12,10 @@ namespace Laboratorirum_3
 {
     public partial class Form1 : Form
     {
-        List<string> persons = new List<string>();
-
         public Form1()
         {
             InitializeComponent();
+            StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void btn_addPerson_Click(object sender, EventArgs e)
@@ -30,11 +29,6 @@ namespace Laboratorirum_3
             if (result == DialogResult.OK)
             {
                 personListBox.Items.Add(dialog.person.ToStringInformation());
-                persons.Add(dialog.person.ToStringInformation());
-            }
-            else if (result == DialogResult.Cancel)
-            {
-                personsInfoBox.Text += "";
             }
         }
 
@@ -48,24 +42,34 @@ namespace Laboratorirum_3
         private void Dialog_PersonEntered(object sender, Person e)
         {
             personListBox.Items.Add(e.ToStringInformation());
-            persons.Add(e.ToStringInformation());
-        }
-
-        private void btn_showList_CLick(object sender, EventArgs e)
-        {
-            foreach(var p in persons)
-            {
-                personsInfoBox.Text += p + "\n";
-            }
         }
 
         private void btn_Edit_Click(object sender, EventArgs e)
         {
-            DialogAddPerson dialog = new DialogAddPerson();
-            dialog.Text = "Edit Person";
-            dialog.buttonText = "Edit";
+            if(personListBox.SelectedItem != null)
+            {
+                DialogAddPerson dialog = new DialogAddPerson();
+                
+                dialog.Text = "Edit Person";
+                dialog.buttonText = "Edit";
 
-            var result = dialog.ShowDialog();
+                int personIndex = personListBox.SelectedIndex;
+                string[] personCharacteristics = personListBox.Items[personIndex].ToString().Split(' ');
+                dialog.name = personCharacteristics[0];
+                dialog.surname = personCharacteristics[1];
+                dialog.age = personCharacteristics[2];
+                dialog.location = personCharacteristics[3];
+
+                var result = dialog.ShowDialog();
+                if(result == DialogResult.OK)
+                {
+                    personListBox.Items[personIndex] = dialog.person.ToStringInformation();
+                }
+            }
+            else
+            {
+                MessageBox.Show("No person selected!");
+            }
         }
     }
 }

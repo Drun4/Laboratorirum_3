@@ -18,6 +18,8 @@ namespace Laboratorirum_3
         public DialogAddMore()
         {
             InitializeComponent();
+            StartPosition = FormStartPosition.Manual;
+            Location = new Point(1200, 605);
         }
 
         private void btn_Add_Click(object sender, EventArgs e)
@@ -30,6 +32,14 @@ namespace Laboratorirum_3
         private void btn_Close_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void btn_Clean_Click(object sender, EventArgs e)
+        {
+            nameBox.Text = "";
+            surnameBox.Text = "";
+            ageBox.Text = "";
+            locationBox.Text = "";
         }
 
 

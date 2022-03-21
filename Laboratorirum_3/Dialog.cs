@@ -13,16 +13,24 @@ namespace Laboratorirum_3
     public partial class DialogAddPerson : Form
     {
         public Person person;
+        private string name1;
 
-        public string buttonText 
-        { 
+        public string name { get => nameBox.Text; set => nameBox.Text = value; }
+        public string surname { get => surnameBox.Text; set => surnameBox.Text = value; }
+        public string age { get => ageBox.Text; set => ageBox.Text = value; }
+        public string location { get => locationBox.Text; set => locationBox.Text = value; }
+
+        public string buttonText
+        {
             get => btn_Ok.Text;
-            set => btn_Ok.Text = value; 
+            set => btn_Ok.Text = value;
         }
 
         public DialogAddPerson()
         {
             InitializeComponent();
+            StartPosition = FormStartPosition.Manual;
+            Location = new Point(1200, 80);
         }
 
         private void btn_Ok_Click(object sender, EventArgs e)
@@ -37,6 +45,14 @@ namespace Laboratorirum_3
                 return;
             }
             DialogResult = DialogResult.OK;
+        }
+
+        private void btn_Clean_Click(object sender, EventArgs e)
+        {
+            nameBox.Text = "";
+            surnameBox.Text = "";
+            ageBox.Text = "";
+            locationBox.Text = "";
         }
     }
 }
