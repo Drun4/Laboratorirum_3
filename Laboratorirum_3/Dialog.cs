@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Laboratorirum_3
@@ -13,12 +7,28 @@ namespace Laboratorirum_3
     public partial class DialogAddPerson : Form
     {
         public Person person;
-        private string name1;
 
+        public Person personInter
+        {
+            get
+            {
+                return personInter;
+            }
+            set
+            {
+                nameBox.Text = person.name;
+                surnameBox.Text = person.surname;
+                ageBox.Text = person.age.ToString();
+                locationBox.Text = person.location;
+            }
+        }
+
+        /*
         public string name { get => nameBox.Text; set => nameBox.Text = value; }
         public string surname { get => surnameBox.Text; set => surnameBox.Text = value; }
         public string age { get => ageBox.Text; set => ageBox.Text = value; }
         public string location { get => locationBox.Text; set => locationBox.Text = value; }
+        */
 
         public string buttonText
         {

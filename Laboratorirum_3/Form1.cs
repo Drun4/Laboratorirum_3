@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Laboratorirum_3
@@ -28,7 +21,7 @@ namespace Laboratorirum_3
 
             if (result == DialogResult.OK)
             {
-                personListBox.Items.Add(dialog.person.ToStringInformation());
+                personListBox.Items.Add(dialog.person);
             }
         }
 
@@ -41,7 +34,7 @@ namespace Laboratorirum_3
 
         private void Dialog_PersonEntered(object sender, Person e)
         {
-            personListBox.Items.Add(e.ToStringInformation());
+            personListBox.Items.Add(e);
         }
 
         private void btn_Edit_Click(object sender, EventArgs e)
@@ -54,16 +47,31 @@ namespace Laboratorirum_3
                 dialog.buttonText = "Edit";
 
                 int personIndex = personListBox.SelectedIndex;
+
+                /* Version 1
                 string[] personCharacteristics = personListBox.Items[personIndex].ToString().Split(' ');
                 dialog.name = personCharacteristics[0];
                 dialog.surname = personCharacteristics[1];
                 dialog.age = personCharacteristics[2];
                 dialog.location = personCharacteristics[3];
+                */
+
+                /* Version 2
+                Person person1 = (Person)personListBox.Items[personIndex];
+                dialog.name = person1.name;
+                dialog.surname = person1.surname;
+                dialog.age = person1.age.ToString();
+                dialog.location = person1.location;
+                */
+
+                // Final version
+                dialog.person = (Person) personListBox.Items[personIndex];
+                dialog.personInter = dialog.person;
 
                 var result = dialog.ShowDialog();
                 if(result == DialogResult.OK)
                 {
-                    personListBox.Items[personIndex] = dialog.person.ToStringInformation();
+                    personListBox.Items[personIndex] = dialog.person;
                 }
             }
             else

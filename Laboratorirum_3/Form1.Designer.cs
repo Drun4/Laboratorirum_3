@@ -88,7 +88,7 @@ namespace Laboratorirum_3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(406, 282);
+            this.ClientSize = new System.Drawing.Size(389, 282);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btn_Edit);
             this.Controls.Add(this.btn_addMore);

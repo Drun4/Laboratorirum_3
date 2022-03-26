@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Drawing;
 
 namespace Laboratorirum_3
 {
@@ -21,7 +18,7 @@ namespace Laboratorirum_3
             location = Location;
         }
 
-        public string ToStringInformation()
+        public override string ToString()
         {
             return name.ToString() + " " + surname.ToString() + " " + age.ToString() + " " + location.ToString();
         }
